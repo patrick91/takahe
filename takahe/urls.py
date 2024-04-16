@@ -345,7 +345,7 @@ urlpatterns = [
     # API/Oauth
     path("api/", include("api.urls")),
     path("oauth/authorize", oauth.AuthorizationView.as_view()),
-    path("oauth/token", oauth.TokenView.as_view()),
+    re_path(r"oauth/token/?$", oauth.TokenView.as_view()),
     path("oauth/revoke", oauth.RevokeTokenView.as_view()),
     # Stator
     path(".stator/", stator.RequestRunner.as_view()),
